@@ -7,13 +7,12 @@
         <meta name='yandex-verification' content='5a8eb402cff505f6' />
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/styles/default.min.css">
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/highlight.min.js"></script>
-    </head> 
+    </head>
     <body>
         <nav>
             <div class="center">
                 <a href="/"><div>Тохыч</div></a>
                 <a href="/"><div>Новости</div></a>
-                <a href="/book"><div>Книги</div></a>
                	<a href="/portfolio"><div>Портфолио</div></a>
                 <a href="/newfeature"><div>Разработка</div></a>
                 <a href="/contacts"><div>Контакты</div></a>
@@ -28,7 +27,7 @@
                 <br><br>
                 Далее добавляем строчки в lighttpd.conf:
                 <br><br>
-                
+
 <pre><code class="bash">$SERVER["socket"] == ":443" {
     ssl.engine = "enable"
     ssl.pemfile = "/path/to/host.pem"
@@ -42,14 +41,14 @@
 
                 2. Из скаченых сертификатов для Other Server создадим host.pem<br>
                 <pre><code class="bash">cat de_ssl.key 2_your_domain.crt > host.pem</code></pre><br>
-                
+
                 3. Так же из сертификатов тех же создаём ssl.crt<br>
                 Сначала скачиваем командой дополнительный файл<br>
                 <pre><code class="bash">wget http://www.startssl.com/certs/sub.class1.server.ca.pem</code></pre><br>
-                
+
                 И создаём нужный сертификат<br>
                 <pre><code class="bash">cat 1_Intermediate.crt sub.class1.server.ca.pem > ssl.crt</code></pre><br>
-                
+
                 4. Остаётся только перезагрузить lighttpd<br>
                 <pre><code class="bash">service lighttpd restart</code></pre>
             </p>
