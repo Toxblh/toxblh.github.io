@@ -1,0 +1,27 @@
+html, body, nav{margin: 0;padding: 0;}
+html {width: 100%;min-width: 1000px;height: 100%;  background: #e4e4e4;}
+body {min-width: 1000px;background: rgba(255,255,255,0.4);}
+nav {height: 40px; width: 100%;min-width: 1000px; list-style-type:none;}
+nav .center {width: 1030px;height: 40px; margin: 0 auto;box-shadow: 0px 0px 70px -5px black;}
+nav a {font-size: 18px;text-decoration: none;color: white;float:left; height: 30px;background: yellowgreen;text-align: center;width: 100px;padding-top: 10px}
+nav a:first-child {width: 300px; font-size: 24px;color: #830000!important}
+nav a:visited {color: white;}
+article{width: 1000px; margin: 0 auto 30px;padding: 15px;background: white;box-shadow: 0px 7px 30px -15px black;}
+footer {height: 25px; width: 100%;min-width: 1000px; background: #8B8B8B;color: #505050;bottom: 0;text-align: center; padding-top: 10px;box-shadow: 0px 5px 10px -6px black inset;}
+img{border: 0px;}
+nav, nav a,nav a:hover:first-child{background: #8B8B8B;}
+nav a:hover{background:#626262;}
+
+
+#chat-form {font-family: tahoma, arial, verdana, sans-serif, Lucida Sans;}
+#rega, #login, #chat-form{position:absolute;width:100%;height:90%;background: #fff;}
+#rega, #login{text-align:center;}
+#Chat {overflow-y:auto;margin:40px auto 0;text-align:left;width:80%;height:76%;background-color:white;border:1px solid lightGrey;}
+.msgbox {position:relative;float:left;padding-left:5px;width:75%;}
+.time {position:relative;padding-right:5px;float:right;position:relative;text-align:right;font: 80% italic;width:135px;color:#bbbbbb;}
+#exit {float:right;}
+#online{width:14%;height:76%;background:white;float:left;position:relative;top:40px;left:0.5%;border:1px solid lightGrey;overflow-y: auto;}
+#txton{float:left;margin-top:14px;margin-left:10px;position:absolute;left:0px;}
+#msg{height:20px;margin-top:1%;width:60%;}
+#vk_like{margin:0 auto;padding:5px;}
+input[value="Отправить"]{height:30px;}

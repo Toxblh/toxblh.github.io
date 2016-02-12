@@ -1,11 +1,103 @@
+<!DOCTYPE html>
 <html>
-	<head>
-		<title>
-			Toxblh page
-		</title>
-	</head>
-	<body>
-		<h1>Привет, я Антон и я программист</h1>
-		<p>Это не грустно, это прикольно!</p>
-	</body>
+    <head>
+        <title>Главная</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link type="text/css" href="main.css" rel="stylesheet">
+        <meta name='yandex-verification' content='5a8eb402cff505f6' />
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/styles/default.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/highlight.min.js"></script>
+    </head> 
+    <body>
+        <nav>
+            <div class="center">
+                <a href="/"><div>Тохыч</div></a>
+                <a href="/"><div>Новости</div></a>
+                <a href="/book"><div>Книги</div></a>
+               	<a href="/portfolio"><div>Портфолио</div></a>
+                <a href="/newfeature"><div>Разработка</div></a>
+                <a href="/contacts"><div>Контакты</div></a>
+            </div>
+        </nav>
+        <article>
+            <h2>Как установить SSL на lighttpd сервер от StartSSL</h2>
+            <p>
+                Для того чтобы заработал SSL на Lighttpd и он показал все галочки на <a href="https://www.geocerts.com/ssl_checker">GeoCarts.com</a> и не возникало проблем на мобильных устройствах написал инструкцию, как сделать это быстро и безболелезнено:
+                <br><br>
+                Вы уже должны получить сертификаты и приватный ключ на <a href="http://habrahabr.ru/post/127643/">StartSSL.com</a>
+                <br><br>
+                Далее добавляем строчки в lighttpd.conf:
+                <br><br>
+                
+<pre><code class="bash">$SERVER["socket"] == ":443" {
+    ssl.engine = "enable"
+    ssl.pemfile = "/path/to/host.pem"
+    ssl.ca-file = "/path/to/ssl.crt"
+}</code></pre><br>
+
+                Теперь создадим host.pem и ssl.crt нужные нам<br>
+                1. Расшифруем полученный приватный ключ командой:<br>
+                <pre><code class="bash">openssl rsa -in ssl.key -out de_ssl.key</code></pre>
+                потребуется ввести пароль который Вы указали при создании<br><br>
+
+                2. Из скаченых сертификатов для Other Server создадим host.pem<br>
+                <pre><code class="bash">cat de_ssl.key 2_your_domain.crt > host.pem</code></pre><br>
+                
+                3. Так же из сертификатов тех же создаём ssl.crt<br>
+                Сначала скачиваем командой дополнительный файл<br>
+                <pre><code class="bash">wget http://www.startssl.com/certs/sub.class1.server.ca.pem</code></pre><br>
+                
+                И создаём нужный сертификат<br>
+                <pre><code class="bash">cat 1_Intermediate.crt sub.class1.server.ca.pem > ssl.crt</code></pre><br>
+                
+                4. Остаётся только перезагрузить lighttpd<br>
+                <pre><code class="bash">service lighttpd restart</code></pre>
+            </p>
+            <h2>How to install SSL on lighttpd server from StartSSL</h2>
+            <p>In order to make SSL on Lighttpd and he showed all the checkboxes on <a href="https://www.geocerts.com/ssl_checker">GeoCarts.com</a> and no problems on mobile devices written instructions on how to do it quickly:
+
+            You should already get the certificates and the private key on <a href="http://habrahabr.ru/post/127643/">StartSSL.com</a>
+            <br><br>
+            Next, add the line in lighttpd.conf:
+            <br><br>
+<pre><code class="bash">$ SERVER ["socket"] == ": 443," {
+    ssl.engine = "enable"
+    ssl.pemfile = "/path/to/host.pem"
+    ssl.ca-file = "/path/to/ssl.crt"
+}</code></pre>
+
+            Now create host.pem and we need ssl.crt
+            1. Decipher the resulting private key command:
+            <pre><code class="bash">openssl rsa -in ssl.key -out de_ssl.key</code></pre>
+
+            You need to enter the password you specified when creating<br><br>
+
+            2. From the downloaded Other Server Certificates to create host.pem
+            <pre><code class="bash">cat de_ssl.key 2_your_domain.crt> host.pem</code></pre><br>
+
+            3. As of the certificates of the same create ssl.crt<br>
+            First, download the additional file command
+            <pre><code class="bash">wget http://www.startssl.com/certs/sub.class1.server.ca.pem</code></pre><br>
+
+            And create the required certificate
+            <pre><code class="bash">cat 1_Intermediate.crt sub.class1.server.ca.pem> ssl.crt</code></pre><br>
+
+            4. We can only restart lighttpd
+            <pre><code class="bash">service lighttpd restart</code></pre>
+            </p>
+            <h2>Портфолио</h2>
+            <p>Добавлен раздел <a href="/portfolio">портфолио</a>. В данном разделе уже размещенны мои работы</p>
+			<h2>Видос старинный</h2>
+			<p><iframe width="640" height="480" src="//www.youtube.com/embed/AfYPzS1NZSI" frameborder="0" allowfullscreen></iframe></p>
+            <h2>Расширение чата для Chrome</h2>
+            <p>Написал расширение скачать можно <a href="https://chrome.google.com/webstore/detail/toxblh-chat/kmoheiojnhbpkjfkahbpgfcbpgmibkof?hl=ru&gl=RU</p>">тут</a><br/>
+            <h2>Привет!</h2>
+            <p>Это первое сообщение после редизайна!</p>
+        </article>
+        <footer>Разработанно и сделанно Toxblh 2012-2015</footer>
+        <!-- Yandex.Metrika counter -->
+      <script type="text/javascript">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter15967882 = new Ya.Metrika({id:15967882, webvisor:true, clickmap:true, trackLinks:true, accurateTrackBounce:true}); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script>
+      <noscript><div><img src="//mc.yandex.ru/watch/15967882" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+      <!-- /Yandex.Metrika counter -->
+    </body>
 </html>
